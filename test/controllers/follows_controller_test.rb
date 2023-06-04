@@ -18,6 +18,12 @@ class FollowsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
   end
 
+  test "follow self will error" do
+    john = users(:john)
+    post user_follow_path(john.id, john.id)
+    assert_response 400
+  end
+
   test "unfollow following return success" do
     john = users(:john)
     bob = users(:bob)
