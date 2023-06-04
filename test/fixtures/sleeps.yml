@@ -2,12 +2,12 @@
 
 one:
   user: alice
-  sleep_at: 2023-06-04 11:23:08
-  wakeup_at: 2023-06-04 11:23:08
-  duration: 1
+  sleep_at: 2022-06-04 20:00:00
+  wakeup_at: 2022-06-05 05:00:00
+  duration: 32400
 
 two:
   user: susan
-  sleep_at: 2023-06-04 11:23:08
-  wakeup_at: 2023-06-04 11:23:08
-  duration: 1
+  sleep_at: 2022-06-04 21:30:00
+  wakeup_at: 2022-06-05 05:30:00
+  duration: 28800

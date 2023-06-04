@@ -1,7 +1,8 @@
 class SleepsController < ApplicationController
     def index
         user = User.find(params[:user_id])
-        render json: user.sleeps.order('sleep_at ASC')
+        sleeps = user.sleeps.order('sleep_at ASC')
+        render json: sleeps
     end
 
     def create

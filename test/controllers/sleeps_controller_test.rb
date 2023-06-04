@@ -32,6 +32,5 @@ class SleepsControllerTest < ActionDispatch::IntegrationTest
     assert_equal Time.new(2023, 5, 1, 20, 0, 0, "UTC"), data[0]['sleep_at']
     assert_equal Time.new(2023, 5, 2, 21, 0, 0, "UTC"), data[1]['sleep_at']
     assert_equal Time.new(2023, 5, 3, 22, 0, 0, "UTC"), data[2]['sleep_at']
-
   end
 end
