@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: alice
+  sleep_at: 2023-06-04 11:23:08
+  wakeup_at: 2023-06-04 11:23:08
+  duration: 1
+
+two:
+  user: susan
+  sleep_at: 2023-06-04 11:23:08
+  wakeup_at: 2023-06-04 11:23:08
+  duration: 1

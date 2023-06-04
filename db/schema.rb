@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_03_130843) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_04_042308) do
   create_table "follows", force: :cascade do |t|
     t.integer "user_id"
     t.integer "target_id"
     t.index ["target_id"], name: "index_follows_on_target_id"
     t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
+  create_table "sleeps", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "sleep_at"
+    t.datetime "wakeup_at"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sleeps_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,4 +37,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_03_130843) do
 
   add_foreign_key "follows", "users"
   add_foreign_key "follows", "users", column: "target_id"
+  add_foreign_key "sleeps", "users"
 end
