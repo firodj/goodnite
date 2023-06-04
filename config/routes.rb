@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:index] do
 
-    resources :follows, only: [:destroy] do
+    resources :follows, only: [:index, :destroy] do
       post '', on: :member, to: 'follows#create'
       get 'sleeps', on: :collection, to: 'follows#sleeps'
     end

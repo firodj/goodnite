@@ -30,12 +30,26 @@ class FollowsControllerTest < ActionDispatch::IntegrationTest
     assert !Follow.find_by(user: bob, target: john).present?
   end
 
+  test "index list following" do
+    bob = users(:bob)
+    alice = users(:alice)
+    susan = users(:susan)
+
+    get user_follows_path(bob.id)
+    assert_response 200
+
+    data = @response.parsed_body
+    assert_equal 2, data.size
+    assert_equal alice.id, data[0]['id']
+    assert_equal susan.id, data[1]['id']
+  end
+
   test "sleeps from following" do
     bob = users(:bob)
     alice = users(:alice)
     susan = users(:susan)
 
-    travel_to Time.utc(2022, 06, 10, 8, 0, 0) do
+    travel_to Time.utc(2022, 6, 10, 8, 0, 0) do
       get sleeps_user_follows_path(bob.id)
     end
     assert_response 200

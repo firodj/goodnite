@@ -1,4 +1,9 @@
 class FollowsController < ApplicationController
+    def index
+        friends = User.find(params[:user_id]).friends
+        render json: friends
+    end
+
     def create
         user = User.find(params[:user_id])
         target = User.find(params[:id])
@@ -26,7 +31,7 @@ class FollowsController < ApplicationController
         start_week = Time.now.midnight - 1.week
         sleeps = Sleep.where(user_id: user.friends.pluck(:id)).
             where('sleep_at >= ?', start_week).
-            order('duration ASC')
+            order(duration: :asc)
         render json: sleeps
     end
 end
