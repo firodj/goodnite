@@ -35,7 +35,9 @@ class FollowsControllerTest < ActionDispatch::IntegrationTest
     alice = users(:alice)
     susan = users(:susan)
 
-    get sleeps_user_follows_path(bob.id)
+    travel_to Time.utc(2022, 06, 10, 8, 0, 0) do
+      get sleeps_user_follows_path(bob.id)
+    end
     assert_response 200
 
     data = @response.parsed_body

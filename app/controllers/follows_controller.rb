@@ -23,7 +23,7 @@ class FollowsController < ApplicationController
 
     def sleeps
         user = User.find(params[:user_id])
-        start_week = '2022-01-01'
+        start_week = Time.now.midnight - 1.week
         sleeps = Sleep.where(user_id: user.friends.pluck(:id)).
             where('sleep_at >= ?', start_week).
             order('duration ASC')
