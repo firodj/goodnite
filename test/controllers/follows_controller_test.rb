@@ -46,8 +46,8 @@ class FollowsControllerTest < ActionDispatch::IntegrationTest
 
     data = @response.parsed_body
     assert_equal 2, data.size
-    assert_equal alice.id, data[0]['id']
-    assert_equal susan.id, data[1]['id']
+    assert_equal susan.id, data[0]['id']
+    assert_equal alice.id, data[1]['id']
   end
 
   test "sleeps from following" do
@@ -62,7 +62,7 @@ class FollowsControllerTest < ActionDispatch::IntegrationTest
 
     data = @response.parsed_body
     assert_equal 2, data.size
-    assert_equal susan.id, data[0]['user_id']
-    assert_equal alice.id, data[1]['user_id']
+    assert_equal susan.id, data[0]['user']['id']
+    assert_equal alice.id, data[1]['user']['id']
   end
 end
