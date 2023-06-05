@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
     resources :follows, only: [:index, :destroy] do
       post '', on: :member, to: 'follows#create'
-      get 'sleeps', on: :collection, to: 'follows#sleeps'
+      get 'sleeps', on: :collection, to: 'sleeps#follows'
     end
 
     resources :sleeps, only: [:create, :index] do
@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "home#index"
 end
